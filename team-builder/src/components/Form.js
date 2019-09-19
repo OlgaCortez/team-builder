@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 
 const Form = props => {
     const [member, setMember] = useState({
@@ -6,6 +6,11 @@ const Form = props => {
         email: '',
         role: ''
     });
+
+    useEffect(() => {
+        const edit = props.memberToEdit;
+        
+    },[props.memberToEdit]);
 
     const handleChanges = event => {
         setMember({...member, [event.target.name]: event.target.value });
@@ -38,7 +43,7 @@ const Form = props => {
             value={member.email} />
 
             <label htmlFor="role">Role</label>
-            
+
             <input id="role" 
             type="text" 
             name="role" 
